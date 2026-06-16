@@ -2,7 +2,7 @@
 title: GrameneOryza
 ---
 
-**Review.** An Ensembl-based genome browser, search interface, and FTP serving the 19K-RGP across all five references — with the stable Ensembl REST API for gene, region, variant-effect, and sequence queries.
+**Review.** An integrated gene search interface, Ensembl-based genome browser, and FTP site serving the 19K-RGP across all five references — with the stable Ensembl REST API for gene, region, variant-effect, and sequence queries.
 
 [Open GrameneOryza ↗](https://oryza19k.gramene.org)
 
