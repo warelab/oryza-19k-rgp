@@ -2,19 +2,6 @@
 title: A Global Atlas of 19,035 Rice Genomes
 ---
 
-> **Unity in Diversity.** One resource, five platforms — explore, query, and download. This guide shows how to access the data efficiently: [APIs](/api), precomputed summaries, and runnable [example workflows](/workflows).
-
-## At a glance
-
-| | |
-| --- | --- |
-| **19,035** | rice genomes |
-| **9,309** | newly sequenced |
-| **5** | platinum references |
-| **~57M** | variants |
-| **2.02M** | high-effect regulatory variants |
-| **138** | AlphaFold3 models |
-
 ## Choose your path
 
 Six entry points into the atlas — pick the task you have in mind and we'll route you to the right platform.
