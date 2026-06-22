@@ -1,14 +1,15 @@
 ---
-title: GrameneOryza
+title: Gramene Oryza
 ---
 
 **Review.** An integrated gene search interface, Ensembl-based genome browser, and FTP site serving the 19K-RGP across all five references — with the stable Ensembl REST API for gene, region, variant-effect, and sequence queries.
 
-[Open GrameneOryza ↗](/gramene)
+[Open Gramene Oryza ↗](/gramene)
 
-## README — what it is & what it hosts
 
-The FTP holds the per-reference variant calls and their predicted effects; the browser visualizes them on the location, gene, and variation pages. Because GrameneOryza is built on Ensembl, the **Ensembl REST API** (`rest.ensembl.org`) gives documented, stable access for *Oryza sativa* — see the [Ensembl REST reference](/api).
+## README
+
+The [FTP site](https://ftp.gramene.org/oryza/19K-RGP/) holds the per-reference variant calls and their predicted effects; the [Ensembl browser](http://oryza-ensembl-dev.gramene.org/index.html) visualizes them on the location, gene, and variation pages. Because Gramene Oryza is built on Ensembl, the **Ensembl REST API** `(rest.ensembl.org)` gives documented, stable access for *Oryza sativa* — see the [Ensembl REST reference](https://data.gramene.org/pansite-ensembl-108).
 
 > **Use this when…** you need gene models, the predicted consequence of a variant (VEP), cross-reference coordinates, or to stream a VCF slice via a track hub / [remote tabix](/api).
 
