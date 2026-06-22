@@ -13,7 +13,7 @@ The [FTP site](https://ftp.gramene.org/oryza/19K-RGP/) holds the per-reference v
 
 > **Use this when…** you need gene models, the predicted consequence of a variant (VEP), cross-reference coordinates, or to stream a VCF slice via a track hub / [remote tabix](/api).
 
-## Tutorial — the genome browser (OsMADS50)
+## Tutorial
 
 1. From the *location* page, search `OsMADS50` to reach its *gene* page.
 2. Open the *variation* page and enable the 19K-RGP variation track.
@@ -21,7 +21,7 @@ The [FTP site](https://ftp.gramene.org/oryza/19K-RGP/) holds the per-reference v
 
 A video walkthrough is available at [oryza.gramene.org/videotutorials](https://oryza.gramene.org/videotutorials).
 
-## Workflow — a locus' variants & effects via REST (no download)
+## Workflow
 
 Goal: for *MADS14* (`Os03g0752800`), pull the gene model, all overlapping variants, and their predicted consequences. `lookup/id` → `overlap/region` (feature=variation) → `vep` → a tidy variant×consequence table. See [Workflow A](/workflows); the runnable notebook is on [Resources](/resources).
 
@@ -31,21 +31,13 @@ Goal: for *MADS14* (`Os03g0752800`), pull the gene model, all overlapping varian
 
 ```bash
 # Gene -> coordinates
-curl -s "https://rest.ensembl.org/lookup/id/Os03g0752800?content-type=application/json"
+curl -s "https://data.gramene.org/pansite-ensembl-108/lookup/id/Os03g0752800?content-type=application/json"
 # Variants overlapping the locus
-curl -s "https://rest.ensembl.org/overlap/region/oryza_sativa/3:31031753-31041563?feature=variation;content-type=application/json"
+curl -s "https://data.gramene.org/pansite-ensembl-108/overlap/region/oryza_sativa/3:31031753-31041563?feature=variation;content-type=application/json"
 # Predicted consequence (region/<chrom>:<start>-<end>/<alt>)
 curl -s "https://rest.ensembl.org/vep/oryza_sativa/region/3:31037240-31037240/A?content-type=application/json"
 ```
 
-**Python**
-
-```python
-import oryza19k as o19
-gene = o19.lookup_gene("Os03g0752800")                       # MADS14
-vars = o19.region_features("3:31031753-31041563", feature="variation")
-vep  = o19.vep_effects("3:31037240:A")                       # -> intron_variant
-```
 
 ## Access & cite
 
