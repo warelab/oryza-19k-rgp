@@ -1,5 +1,5 @@
 ---
-title: Oryza CLIMtools
+title: 19K SNPs Map
 ---
 
 **Public.** Interactive climate ↔ genome (G×E) association apps over the rice landrace collection — explore which environmental variables track natural genetic variation.
