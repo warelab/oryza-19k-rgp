@@ -13,11 +13,11 @@ This Gramene *Oryza* instance is dedicated to the 19K-RGP data set. The 19K-RGP 
 
 | Reference | Subpopulation | Assembly |
 | --- | --- | --- |
-| Nipponbare | Japonica (GJ) | IRGSP-1.0 |
-| IR64 | indica (XI) | IR64RS2 |
-| Minghui 63 | indica (XI) | MH63RS3 |
-| N22 | aus | *to confirm* |
-| ARC 10497 | aromatic (Basmati) | *to confirm* |
+| Nipponbare | Japonica (GJ) | [IRGSP-1.0](http://oryza-ensembl-dev.gramene.org/Oryza_sativa/Info/Index) |
+| IR64 | indica (XI) | [IR64RS2](http://oryza-ensembl-dev.gramene.org/Oryza_sativair64rs2/Info/Index) |
+| Minghui 63 | indica (XI) | [MH63RS3](http://oryza-ensembl-dev.gramene.org/Oryza_sativamh63/Info/Index) |
+| N22 | aus | [OsN22RS2](http://oryza-ensembl-dev.gramene.org/Oryza_aus/Info/Index) |
+| ARC 10497 | aromatic (Basmati) | [Os117425RS1](http://oryza-ensembl-dev.gramene.org/Oryza_sativa117425/Info/Index) |
 
 For each reference, Gramene Oryza serves the genome assembly, gene models and annotation, and the 19K-RGP variation data (SNPs + InDels with predicted effects).
 
