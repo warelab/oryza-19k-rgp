@@ -9,9 +9,7 @@ An integrated gene search interface, Ensembl-based genome browser, and FTP site 
 
 ## README — what it is & what it hosts
 
-The [FTP site](https://ftp.gramene.org/oryza/19K-RGP/) holds the per-reference variant calls and their predicted effects; the [Ensembl browser](http://oryza-ensembl-dev.gramene.org/index.html) visualizes them on the location, gene, and variation pages. Because Gramene Oryza is built on Ensembl, the **Ensembl REST API** `(rest.ensembl.org)` gives documented, stable access for *Oryza sativa* — see the [Ensembl REST reference](https://data.gramene.org/pansite-ensembl-108).
-
-The 19K-RGP is hosted against all five platinum references, one per major *Oryza sativa* subpopulation:
+This Gramene *Oryza* instance is dedicated to the 19K-RGP data set. The 19K-RGP genotypes were mapped against all five platinum references, one per major *Oryza sativa* subpopulation:
 
 | Reference | Subpopulation | Assembly |
 | --- | --- | --- |
@@ -21,42 +19,34 @@ The 19K-RGP is hosted against all five platinum references, one per major *Oryza
 | N22 | aus | *to confirm* |
 | ARC 10497 | aromatic (Basmati) | *to confirm* |
 
-For each reference, Gramene Oryza serves the genome assembly, gene models and annotation, and the 19K-RGP variation track (SNPs + InDels with predicted effects).
+For each reference, Gramene Oryza serves the genome assembly, gene models and annotation, and the 19K-RGP variation data (SNPs + InDels with predicted effects).
 
-Interactive tools: region/location view; gene pages (models, transcripts, cross-references); comparative genomics (gene trees / orthologs); Plant Reactome pathway links; AlphaFold3 protein-structure models; the variation page with the 19K-RGP track and per-variant VEP; BLAST sequence search; plus track-hub streaming and FTP bulk download.
+- An integrated **[gene search interface](/gramene)** includes rapid access to accessions from the 19K-RGP with predicted loss-of-function alleles in its Germplasm tab, with links to IRRI for obtaining seeds.
+- The **[Ensembl genome browser](http://oryza-ensembl-dev.gramene.org/index.html)** visualizes variant data on the location, gene, and variation pages and integrates missense variation within Alphafold predicted protein structures.
+- Bulk access to variant calls and their predicted effects are provided via the **[FTP site](https://ftp.gramene.org/oryza/19K-RGP/)**.
+- Programmatic access to Gramene data is offered through two services: the **[Ensembl REST API](https://data.gramene.org/pansite-ensembl-108)** and the **[Gramene search API](https://data.gramene.org/oryza_v9)**.
 
-> **Use this when…** you need gene models, the predicted consequence of a variant (VEP), cross-reference coordinates, comparative genomics or pathway context, a protein structure, or to stream a VCF slice via a track hub / [remote tabix](/api).
 
-## Tutorial — the genome browser (OsMADS50)
+## Tutorial
 
-1. From the *location* page, search `OsMADS50` to reach its *gene* page — gene models, transcripts, and cross-references.
-2. From the gene page, explore comparative genomics (gene tree / orthologs) and the linked Plant Reactome pathways.
-3. Open the AlphaFold3 structure for the protein.
-4. Open the *variation* page, enable the 19K-RGP variation track, and click a variant to inspect its predicted effect (VEP).
-5. To locate a sequence rather than a gene name, run BLAST against a reference to jump to the region.
-
-A video walkthrough is available at [oryza.gramene.org/videotutorials](https://oryza.gramene.org/videotutorials).
-
-## Workflow — a locus' variants and predicted effects via REST
-
-Goal: for *MADS14* (`Os03g0752800`), pull the gene model, all overlapping variants, and their predicted consequences. `lookup/id` → `overlap/region` (feature=variation) → `vep` → a tidy variant×consequence table. See [Workflow A](/workflows); the runnable notebook is on [Resources](/resources).
-
-## Examples
-
-**curl**
-
-```bash
-# Gene -> coordinates
-curl -s "https://data.gramene.org/pansite-ensembl-108/lookup/id/Os03g0752800?content-type=application/json"
-# Variants overlapping the locus
-curl -s "https://data.gramene.org/pansite-ensembl-108/overlap/region/oryza_sativa/3:31031753-31041563?feature=variation;content-type=application/json"
-# Predicted consequence (region/<chrom>:<start>-<end>/<alt>)
-curl -s "https://rest.ensembl.org/vep/oryza_sativa/region/3:31037240-31037240/A?content-type=application/json"
-```
+1. In the gene search interface enter `OsMADS50` in the search box and select the matching gene.
+   1. The Homology tab loads an interactive TBrowse gene family tree, with branches expanded to show OsMADS50. The MSA zone shows InterPro domain annotations, and a gene neighborhood zone shows the genomic context surrounding the gene family members.
+   2. The Pathways tab illustrates the role of this gene in various biochemical processes.
+   3. The Papers tab lists publications describing the gene or pathway members
+   4. The Expression tab assembles gene expression profiles from multiple studies across a variety of tissues. The Paralogs tab lets users compare baseline or differential expression profiles across the gene family members. An embedded eFP browser offers additional views of OsMADS50 expression.
+   5. The Location tab shows a lightweight embedded genome browser and links to the full featured Ensembl browser.
+   6. The Sequences tab provide access to gene, transcript, and peptide sequences for the gene model.
+   7. The Germplasm tab shows accessions with predicted loss-of-function alleles for variants within the gene model.
+3. From the *Location* tab, follow the link to the ensembl site to access the gene page
+4. From the gene page, click on a transcript ID and load the [AlphaFold predicted model](http://oryza-ensembl-dev.gramene.org/Oryza_sativa/Transcript/AFDB?db=core;g=Os03g0122600;r=3:1270320-1300273;t=Os03t0122600-01).
+5. To locate a gene based on a query sequence rather than a gene name, run [BLAST](http://oryza-ensembl-dev.gramene.org/Oryza_sativa/Tools/Blast) against a reference to jump to the region.
 
 
 ## Access & cite
 
-The [Ensembl REST API](/api) (`rest.ensembl.org`) is **public and stable now**, no login. **Review** applies only to the browser/FTP during peer review: the 19K-RGP rice resources are now live at [oryza19k.gramene.org](https://oryza19k.gramene.org) (reviewer credentials provided to the editor), moving to public, login-free production endpoints at publication. The durable variant archive is the [European Variation Archive (PRJEB105137)](https://www.ebi.ac.uk/eva/?eva-study=PRJEB105137), also documented under [Archives](/platforms).
+The 19K-RGP rice resources are now live at [oryza19k.gramene.org](https://oryza19k.gramene.org) (reviewer credentials provided to the editor), moving to public, login-free production endpoints at publication. The durable variant archive is the [European Variation Archive (PRJEB105137)](https://www.ebi.ac.uk/eva/?eva-study=PRJEB105137).
 
-Cite: Tello-Ruiz *et al.* (Gramene, *NAR*); the GrameneOryza database paper; the Ensembl REST API.
+Cite:
+
+- Olson *et al.* Gramene 2025: expanded comparative genomics and pathway resources, integrated search, and pan-genome portals for crop research, Nucleic Acids Research, Volume 54, Issue D1, 6 January 2026, Pages D1720–D1732, [https://doi.org/10.1093/nar/gkaf1260](https://doi.org/10.1093/nar/gkaf1260)
+- Wei *et al.* GrameneOryza: a comprehensive resource for Oryza genomes, genetic variation, and functional data, Database, Volume 2025, 2025, baaf021, [https://doi.org/10.1093/database/baaf021](https://doi.org/10.1093/database/baaf021)
