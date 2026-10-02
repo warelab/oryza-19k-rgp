@@ -4,7 +4,7 @@ title: SNP-Seek v3
 
 **Public.** IRRI's variant-and-phenotype warehouse for the rice panels — genotypes, local haplotypes, allele frequencies, and accession passport/phenotype data, all queryable for a region across every accession at once.
 
-[Open SNP-Seek ↗](https://snpseekv3.duckdns.org/19k/)
+[Open SNP-Seek ↗](https://snp-seek.org/19kRG/)
 
 ## README — what it is & what it hosts
 
