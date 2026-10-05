@@ -38,7 +38,7 @@ Goal: get all 19K-RGP genotypes and per-group allele frequencies at *MADS14* (ch
 
 ```bash
 # Genotype-by-region (schema per SNP-Seek II; confirm exact route with IRRI)
-curl -s "https://snp-seek.irri.org/<api>/genotype?ref=IRGSP-1.0&chrom=3&start=31031753&end=31041563&varset=XI"
+curl -s "https://snp-seek.org/19kRG/ws/genotype/gettable?organismId=9&dataset=20k&chr=chr03&start=31031753&end=3141563&snp=true"
 ```
 
 **Python**
@@ -50,7 +50,5 @@ gt = o19.region_genotypes("Chr03", 31031753, 31041563, ref="IRGSP-1.0", source="
 ```
 
 ## Access & cite
-
-**Public.** Anonymous web UI and bulk downloads (no login): VCF, HDF5, genotype matrices; 3K Rice Genomes Open Data on AWS. The [REST API](/api) is login-free, but its exact paths are being confirmed with IRRI — use [remote tabix](/api) as the interim programmatic path.
 
 Cite: Mansueto *et al.* (2017) *Nucleic Acids Research* — "SNP-Seek II"; Alexandrov *et al.* (2015) *NAR*.
